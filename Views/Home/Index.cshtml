@@ -4,8 +4,7 @@
     ViewBag.Title = "Restaurant : home";
 }
 
-<h2>OdeToFood</h2>
-<h3>@Model.CurrentMessage</h3>
+
 <table>
     <thead>
     <tr>
@@ -19,9 +18,9 @@
         <tr>
             <td>
                 @Html.ActionLink("Details", "Details", "Home", new
-                     {
-                         Id = m.Id
-                     })
+                {
+                    Id = m.Id
+                })
             </td>
             <td>@m.Id</td>
             <td>@m.Name</td>
@@ -29,3 +28,8 @@
     }
     </tbody>
 </table>
+
+@section footer {
+    <h3>@Model.CurrentMessage</h3>
+    <div>@DateTime.Now.Year</div>
+}
