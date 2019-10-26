@@ -65,6 +65,7 @@ namespace OdeToFood
         {
             // FORMAT : /Home/Index
             routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+
         }
     }
 }
