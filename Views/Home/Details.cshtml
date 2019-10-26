@@ -5,11 +5,15 @@
 
 @if (Model == null)
 {
-     
+    <div> no data </div>
 }
 else
 {
-    <h2>@Model.Name</h2>
+
+    <div>ID : @Model.Id</div>
+    <div>Name : @Model.Name</div>
+    <div>Name : @Model.Cuisine</div>
 }
 
-<div>@Html.ActionLink("Back to Home" , "Index" , "Home")</div>
+
+<div>@Html.ActionLink("Back to Home", "Index", "Home")</div>
