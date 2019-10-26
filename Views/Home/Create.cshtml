@@ -1,1 +1,25 @@
 ﻿
+@using Newtonsoft.Json
+@using OdeToFood.Entities
+@model OdeToFood.Entities.Restaurant
+<div>
+    <h2>Create</h2>
+    <div>
+         @using (Html.BeginForm())
+         {
+             @Html.HiddenFor(m => m.Id)
+             <div>
+                 @Html.LabelFor(m => m.Name)
+                 @Html.TextBoxFor(m => m.Name)
+             </div>
+
+             <div>
+                 @Html.LabelFor(m => m.Cuisine)
+                 @Html.DropDownListFor(m => m.Cuisine , Html.GetEnumSelectList(typeof(CuisineType)))
+             </div>
+             <div>
+                 <input type="submit" value="save!"/>
+             </div>
+         }
+    </div>
+</div>
