@@ -25,9 +25,14 @@ namespace OdeToFood.Services
 
         public Restaurant Add(Restaurant newRestaurant)
         {
+             
             _context.Add(newRestaurant);
-            _context.SaveChanges();
             return newRestaurant;
+        }
+
+        public void Commit()
+        {
+            _context.SaveChanges();
         }
     }
     public class InMemoryRestaurantData : IRestaurantData
@@ -61,6 +66,11 @@ namespace OdeToFood.Services
             _restaurant.Add(newRestaurant);
             return newRestaurant;
         }
+
+        public void Commit()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     public interface IRestaurantData
@@ -68,5 +78,6 @@ namespace OdeToFood.Services
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
         Restaurant Add(Restaurant newRestaurant);
+        void Commit();
     }
 }

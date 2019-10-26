@@ -5,6 +5,13 @@
 }
 
 
+@*<environment names="Developments">
+    Dev
+</environment>*@
+
+
+@*<cache enabled="true"></cache>*@
+
 <table>
     <thead>
     <tr>
@@ -21,6 +28,9 @@
                 {
                     Id = m.Id
                 })
+                
+                <a asp-action="Details" asp-route-id="@m.Id">รายละเอียด</a>
+                <a asp-action="Edit" asp-route-id="@m.Id">แก้ไข</a>
             </td>
             <td>@m.Id</td>
             <td>@m.Name</td>
@@ -28,6 +38,8 @@
     }
     </tbody>
 </table>
+
+<a asp-action="Create">Create</a>
 
 @section footer {
     <h3>@Model.CurrentMessage</h3>
