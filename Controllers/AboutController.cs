@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace OdeToFood.Controllers
 {
-    [Route("company/[conroller]/[action]")]
+    [Route("company/[controller]/[action]")]
     public class AboutController
     {
         //[Route(["action"])]
