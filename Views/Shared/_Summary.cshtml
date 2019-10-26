@@ -1,0 +1,14 @@
+﻿@model Restaurant
+@{
+    ViewData["Title"] = "_Summary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+    <h3>@Model.Name</h3>
+
+    <div>Cuisine : @Model.Cuisine</div>
+    <a asp-action="Details" asp-route-id="@Model.Id">รายละเอียด</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">แก้ไข</a>
+</section>

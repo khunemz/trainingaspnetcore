@@ -12,7 +12,13 @@
 
 @*<cache enabled="true"></cache>*@
 
-<table>
+
+@foreach (var m in Model.Restaurants)
+{
+    @Html.Partial("_Summary" ,m);
+}
+
+@*<table>
     <thead>
     <tr>
         <th>ID</th>
@@ -37,7 +43,7 @@
         </tr>
     }
     </tbody>
-</table>
+</table>*@
 
 <a asp-action="Create">Create</a>
 
