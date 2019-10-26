@@ -1,11 +1,11 @@
-﻿using System.Reflection.Metadata;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OdeToFood.Services;
 
 namespace OdeToFood
 {
@@ -25,6 +25,7 @@ namespace OdeToFood
         {
             services.AddMvc();
             services.AddSingleton<IGreeter, Greeter>();
+            services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env

@@ -1,0 +1,15 @@
+﻿@model OdeToFood.Entities.Restaurant
+
+
+<div>Details ....</div>
+
+@if (Model == null)
+{
+     
+}
+else
+{
+    <h2>@Model.Name</h2>
+}
+
+<div>@Html.ActionLink("Back to Home" , "Index" , "Home")</div>

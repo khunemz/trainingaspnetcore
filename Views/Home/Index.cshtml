@@ -1,8 +1,31 @@
-﻿@model OdeToFood.Models.Restaurant
+﻿@model OdeToFood.ViewModels.HomePageViewModel
 
 @{
     ViewBag.Title = "Restaurant : home";
 }
 
 <h2>OdeToFood</h2>
-<h3>ID: @Model.Id , Name: @Model.Name</h3>
+<h3>@Model.CurrentMessage</h3>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var m in Model.Restaurants)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Details", "Details", "Home", new
+                     {
+                         Id = m.Id
+                     })
+            </td>
+            <td>@m.Id</td>
+            <td>@m.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
