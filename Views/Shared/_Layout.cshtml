@@ -7,13 +7,16 @@
 </head>
 <body>
 <div class="container">
-    <h2>OdeToFood</h2>
     
+    @*@await Component.InvokeAsync("LoginLogout");*@
+    <h2>OdeToFood</h2>
+
     @RenderBody()
 </div>
 
 <footer>
     @RenderSection("footer" , false)
+    @await  Component.InvokeAsync("Greeting")
 </footer>
 </body>
 </html>

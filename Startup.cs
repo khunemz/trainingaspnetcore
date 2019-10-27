@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,6 +33,9 @@ namespace OdeToFood
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("OdeToFood")
                 ));
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<OdeToFoodDbContext>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env
@@ -64,8 +68,12 @@ namespace OdeToFood
             //    await context.Response.WriteAsync(string.Format("Hello {0}", message));
             //});
 
+#pragma warning disable 618
+            app.UseIdentity();
+#pragma warning restore 618
+
             app.UseMvc(configureRoutes);
-            app.Run(ctx => ctx.Response.WriteAsync("Not found!!!"));
+            app.Run(ctx => ctx.Response.WriteAsync("404 Not found."));
         }
 
         private void configureRoutes(IRouteBuilder routeBuilder)
